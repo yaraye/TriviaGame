@@ -1,0 +1,13 @@
+/*<div id="title"><div id="timer"></div></div><div id="sec"></div>*/
+#title{
+    position: relative;
+    float: left;
+}
+#timer{
+    position: absolute;
+    float: left;
+}
+#sec{
+    position: absolute;
+    float: left;
+}
