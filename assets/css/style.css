@@ -1,13 +1,47 @@
-/*<div id="title"><div id="timer"></div></div><div id="sec"></div>*/
-#title{
-    position: relative;
-    float: left;
+.grid{
+    width: 600px;
+    height: 500px;
+    margin:0 auto;
+    background-color: aliceblue;
+    padding: 10px 50px 50px 50px;
+    border-radius: 50px;
+    box-shadow: 10px 15px 5px #000000;
+
 }
-#timer{
-    position: absolute;
-    float: left;
+.grid h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: azure;
+    font-size: 60px;
+    text-align: center;
+    color: black;
+    padding: 2px 0px;
+    border-radius: 50px;
 }
-#sec{
-    position: absolute;
-    float: left;
+
+.grid #question{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    color: black;
+}
+
+.button{
+    margin-top: 30px;
+}
+
+#btn0,
+#btn1,
+#btn2,
+#btn3{
+    background-color: gainsboro;
+    width: 250px;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 10px;
+    margin: 10px 40px 10px 0px;
+    border: 1px solid #1d3c6a;
+    border-radius: 50px;
+}
+#progress{
+    color: #2b2b2b;
+    font-size:18px;
 }

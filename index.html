@@ -1,35 +1,32 @@
-<!DOCTYPE.<!DOCTYPE html>
+<!doctype.<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trivia-Game</title>
+    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
  
 </head>
 <body>
-
-    <header>
-        <h1>Totally Trivial Trivia!</h1>
-    </header>
-
-    <div class="container">
-       
-    <button id="start">Start</button>
-    <br>
-    <div id="triviaQuestions"></div>
-    <div id="timer">Timer</div>
-    <div id="results"></div>
-
-
-        
+    <div class="grid">
+        <div id="quiz">
+            <h1>Quiz</h1>
+            <p id="question"></p>
+            <div class="buttons">
+                <button id="btn0"><span id="choice0"></span></button>
+                <button id="btn1"><span id="choice1"></span></button>
+                <button id="btn2"><span id="choice2"></span></button>
+                <button id="btn3"><span id="choice3"></span></button>
+            </div>
+        </div>
+        <footer>
+            <p id="progress">Question X of Y</p>
+        </footer>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+   
+ 
     <script text="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
