@@ -73,22 +73,19 @@ Quiz.prototype.guess =function(answer){
 
   //check if answer is correct
   if(this .getQuestionIndex().correctAnswer(answer)){
-      this.score++;
- 
-     
-   
-  } else{
-    this.score--;
+      this.score++; 
   }
- 
   this.questionIndex++;
-  console.log(this);
-  
+  console.log(this);  
+  clearInterval(time);
+  countdown();  
+ 
 }
 
 function populate (){
   if(quiz.isEnded()){
        showScores();
+      
 
   }
   else {
@@ -146,12 +143,50 @@ var quiz= new Quiz(questions);
 
 
 
+// //find selected answer
+// var answerContainer = answerContainers[questionIndex];
+// var selector = `input[name=question${questionIndex}]:clicked`;
+// var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
+// function showResults(){
 
-// //reset questions
-// function resetQuiz() {
-//   funTriviaGameQuestion = 0;
-//   correctAnswers = 0;
-//   hideScore();
-// };
+//   // gather answer containers from our quiz
+//  var answerContainers = funTriviaGameQuestion.querySelectorAll('.buttons');
+
+//   // keep track of user's answers
+//   let correctAnswer = 0;
+
+//   // for each question...
+// funTriviaGameQuestion.forEach( (currentQuestion, questionIndex) => {
+
+//     // find selected answer
+//    var answerContainer = answerContainers[questionIndex];
+//    var selector = 'input[name=question'+questionIndex+']:checked';
+//    var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+//     // if answer is correct
+//     if(userAnswer===currentQuestion.correctAnswer){
+//       // add to the number of correct answers
+//       correctAnswer++;
+
+//       // color the answers green
+//       answerContainers[questionIndex].style.color = 'lightgreen';
+//     }
+//     // if answer is wrong or blank
+//     else{
+//       // color the answers red
+//       answerContainers[questionIndex].style.color = 'red';
+//     }
+//   });
+
+//   // show number of correct answers out of total
+//   gameOverhtml+=innerHTML = correctAnswer
+// }
+
+// // //reset questions
+// // function resetQuiz() {
+// //   funTriviaGameQuestion = 0;
+// //   correctAnswers = 0;
+// //   hideScore();
+// // };
 
