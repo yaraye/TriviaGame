@@ -1,4 +1,47 @@
 
+
+$(function() {
+  $('.buttons').hide();
+});
+// Count will keep track of the index of the currently displaying picture.
+var count = 0;
+
+//start button 
+    $('#start').on('click', function(){
+    $(this).hide();
+    countdown ();
+$(function() {
+  $('.buttons').show();
+});
+    populate();
+    startOverTimer();
+
+    });
+    
+    $('#reset').on('click', function(){
+    $(this).hide();
+    });
+    
+  
+
+    //set timer
+function countdown(){
+	seconds = 5;
+	$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
+	answer = true;
+	//sets timer to go down
+    time = setInterval(showCountdown, 1000);
+
+}
+function showCountdown(){
+	seconds--;
+	$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
+	if(seconds < 1){
+        clearInterval(time);
+	}
+}
+
+
 function funTriviaGameQuestion(text, choices, answer){
   this.text=text;
   this.choices=choices;
@@ -8,6 +51,8 @@ function funTriviaGameQuestion(text, choices, answer){
 //answer corrector not
 funTriviaGameQuestion.prototype.correctAnswer=function(choice){
   return this.choice===this.answer;
+  //on submit show result
+onclick.addEventListener("click", showAnswer)
 }
 
 function Quiz(questions){
@@ -29,9 +74,16 @@ Quiz.prototype.guess =function(answer){
   //check if answer is correct
   if(this .getQuestionIndex().correctAnswer(answer)){
       this.score++;
+ 
+     
    
+  } else{
+    this.score--;
   }
+ 
   this.questionIndex++;
+  console.log(this);
+  
 }
 
 function populate (){
@@ -43,6 +95,7 @@ function populate (){
       //show question();
       var element= document.getElementById("question");
       element.innerHTML=quiz.getQuestionIndex().text;
+      
 
       //show choice
       var choices=quiz.getQuestionIndex().choices;
@@ -50,6 +103,8 @@ function populate (){
           var element= document. getElementById("choice" + i);
           element.innerHTML=choices[i];
           guess("btn" + i, choices[i]);
+  
+          
       }
   }
 };
@@ -59,6 +114,7 @@ function guess(id,guess) {
   button.onclick=function(){
       quiz.guess(guess);
       populate();
+      
 
   }
 
@@ -73,6 +129,8 @@ function showScores (){
   element.innerHTML=gameOverhtml;
 
 };
+
+
 var questions=[
   new funTriviaGameQuestion("What nation was bounced from the Organisation of American States in 1962?", ["Cuba","Canada","Mixico","Gana"],"Cuba"),
   new funTriviaGameQuestion("What continent has the fewest flowering plants?",["Asia","Antarctica","Africa","Australia"],"Antarctica"),
@@ -86,4 +144,14 @@ new funTriviaGameQuestion("What was the first planet to be discovered using the 
 //
 var quiz= new Quiz(questions);
 
-populate();
+
+
+
+
+// //reset questions
+// function resetQuiz() {
+//   funTriviaGameQuestion = 0;
+//   correctAnswers = 0;
+//   hideScore();
+// };
+

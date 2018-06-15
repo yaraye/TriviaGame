@@ -17,7 +17,19 @@
     padding: 2px 0px;
     border-radius: 50px;
 }
-
+#start{
+    font-size: 40px;
+    margin-top: 70px;
+    text-align: center;
+    border-radius: 40px;
+    background-color: lightblue;
+    width: 200px;
+    color: black;
+    padding: 10px 10px;
+    margin-left: 35%;
+    border: 1px solid #1d3c6a;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 .grid #question{
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
