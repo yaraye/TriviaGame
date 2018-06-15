@@ -1,14 +1,12 @@
 
-
-function Question(text, choices, answer){
+function funTriviaGameQuestion(text, choices, answer){
   this.text=text;
   this.choices=choices;
   this.answer=answer;
-
 }
 
 //answer corrector not
-Question.prototype.correctAnswer=function(choice){
+funTriviaGameQuestion.prototype.correctAnswer=function(choice){
   return this.choice===this.answer;
 }
 
@@ -31,12 +29,15 @@ Quiz.prototype.guess =function(answer){
   //check if answer is correct
   if(this .getQuestionIndex().correctAnswer(answer)){
       this.score++;
+   
   }
   this.questionIndex++;
 }
+
 function populate (){
   if(quiz.isEnded()){
        showScores();
+
   }
   else {
       //show question();
@@ -50,9 +51,9 @@ function populate (){
           element.innerHTML=choices[i];
           guess("btn" + i, choices[i]);
       }
-      showProgress();
   }
 };
+
 function guess(id,guess) {
   var button= document.getElementById(id);
   button.onclick=function(){
@@ -62,27 +63,27 @@ function guess(id,guess) {
   }
 
 };
-function showProgress(){
-  var currentQuestionNumber= quiz.questionIndex + 1;
-  var element = document.getElementById("progress");
-  element.innerHTML= "Question" + currentQuestionNumber + "of" + quiz.questions.length;
 
-}
 function showScores (){
   var gameOverhtml='<h1>Result</h1>'
-  gameOverhtml+="<h2 id='score'> Your scores:"+ quiz.score+"</h2>";
+  gameOverhtml+="<h2 id='score'> Correct Answers:"+ quiz.score+"</h2>";
+  gameOverhtml+="<h2 id='score'> Incorrect Answer:"+ quiz.score+"</h2>";
+ 
   var element=document.getElementById("quiz");
   element.innerHTML=gameOverhtml;
 
 };
 var questions=[
-  new Question("What nation was bounced from the Organisation of American States in 1962?", ["Cuba","Canada","Mixico","Gana"],"Cuba"),
-  new Question("2What nation was bounced from the Organisation of American States in 1962?",["Cuba","Canada","Mixico","Gana"],"Canda"),
-  new Question("3What nation was bounced from the Organisation of American States in 1962?",["Cuba","Canada","Mixico","Gana"],"Mixico")
+  new funTriviaGameQuestion("What nation was bounced from the Organisation of American States in 1962?", ["Cuba","Canada","Mixico","Gana"],"Cuba"),
+  new funTriviaGameQuestion("What continent has the fewest flowering plants?",["Asia","Antarctica","Africa","Australia"],"Antarctica"),
+  new funTriviaGameQuestion("What country saw a world record 315 million voters turn out for elections on May 20, 1991? ",["India","Canada","Mixico","Ethiopia"],"India"),
+  new funTriviaGameQuestion("What national holiday in Mexico has picnickers munching chocolate coffins and sugar skulls? ",["The Day of the Dead","Walking Dead","Dead People","Day of the Dead"],"The Day of the Dead"),
+
+
+new funTriviaGameQuestion("What was the first planet to be discovered using the telescope, in 1781?",["Mars","Earth","Venus","Uranus"],"Uranus")
 ];
 
 //
 var quiz= new Quiz(questions);
 
 populate();
-
