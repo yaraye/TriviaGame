@@ -3,7 +3,9 @@
 $(function() {
   $('.buttons').hide();
 });
+
 // Count will keep track of the index of the currently displaying picture.
+
 var count = 0;
 
 //start button 
@@ -14,16 +16,9 @@ $(function() {
   $('.buttons').show();
 });
     populate();
-    startOverTimer();
-
+   
     });
-    
-    $('#reset').on('click', function(){
-    $(this).hide();
-    });
-    
-  
-
+   
     //set timer
 function countdown(){
 	seconds = 5;
@@ -31,6 +26,7 @@ function countdown(){
 	answer = true;
 	//sets timer to go down
     time = setInterval(showCountdown, 1000);
+   
 
 }
 function showCountdown(){
@@ -38,8 +34,11 @@ function showCountdown(){
 	$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
 	if(seconds < 1){
         clearInterval(time);
+        console.log(seconds);
+        populate();
+        quiz.guess();
 	}
-}
+};
 
 
 function funTriviaGameQuestion(text, choices, answer){
@@ -49,8 +48,8 @@ function funTriviaGameQuestion(text, choices, answer){
 }
 
 //answer corrector not
-funTriviaGameQuestion.prototype.correctAnswer=function(choice){
-  return this.choice===this.answer;
+funTriviaGameQuestion.prototype.correctAnswer=function(choices){
+  return this.choices===this.answer;
   //on submit show result
 onclick.addEventListener("click", showAnswer)
 }
@@ -68,31 +67,36 @@ Quiz.prototype.getQuestionIndex= function (){
 Quiz.prototype.isEnded= function() {
   return this.questions.length===this.questionIndex;
 
+
 }
 Quiz.prototype.guess =function(answer){
+console.log(this.questions[this.questionIndex].answer);
 
   //check if answer is correct
-  if(this .getQuestionIndex().correctAnswer(answer)){
+  if(this.questions[this.questionIndex].answer===answer){
       this.score++; 
+      console.log("correctAnswer");
   }
+  
   this.questionIndex++;
   console.log(this);  
-  clearInterval(time);
-  countdown();  
- 
-}
+};
+
 
 function populate (){
   if(quiz.isEnded()){
        showScores();
-      
-
   }
   else {
       //show question();
       var element= document.getElementById("question");
       element.innerHTML=quiz.getQuestionIndex().text;
+     clearInterval(time);
+      countdown();
+    
       
+  
+    
 
       //show choice
       var choices=quiz.getQuestionIndex().choices;
@@ -100,9 +104,8 @@ function populate (){
           var element= document. getElementById("choice" + i);
           element.innerHTML=choices[i];
           guess("btn" + i, choices[i]);
-  
-          
-      }
+      }   
+      
   }
 };
 
@@ -111,16 +114,16 @@ function guess(id,guess) {
   button.onclick=function(){
       quiz.guess(guess);
       populate();
-      
-
+    
   }
 
 };
 
+
 function showScores (){
   var gameOverhtml='<h1>Result</h1>'
   gameOverhtml+="<h2 id='score'> Correct Answers:"+ quiz.score+"</h2>";
-  gameOverhtml+="<h2 id='score'> Incorrect Answer:"+ quiz.score+"</h2>";
+  // gameOverhtml+="<h2 id='score'> Incorrect Answer:"+ quiz.score+"</h2>";
  
   var element=document.getElementById("quiz");
   element.innerHTML=gameOverhtml;
@@ -133,9 +136,7 @@ var questions=[
   new funTriviaGameQuestion("What continent has the fewest flowering plants?",["Asia","Antarctica","Africa","Australia"],"Antarctica"),
   new funTriviaGameQuestion("What country saw a world record 315 million voters turn out for elections on May 20, 1991? ",["India","Canada","Mixico","Ethiopia"],"India"),
   new funTriviaGameQuestion("What national holiday in Mexico has picnickers munching chocolate coffins and sugar skulls? ",["The Day of the Dead","Walking Dead","Dead People","Day of the Dead"],"The Day of the Dead"),
-
-
-new funTriviaGameQuestion("What was the first planet to be discovered using the telescope, in 1781?",["Mars","Earth","Venus","Uranus"],"Uranus")
+  new funTriviaGameQuestion("What was the first planet to be discovered using the telescope, in 1781?",["Mars","Earth","Venus","Uranus"],"Uranus")
 ];
 
 //
