@@ -15,29 +15,28 @@ var count = 0;
 $(function() {
   $('.buttons').show();
 });
-populate();
-quiz.guess();
-
+    populate();
+   
     });
    
     //set timer
 function countdown(){
 	seconds = 5;
-$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
+	$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
 	answer = true;
 	//sets timer to go down
-    time = setInterval(showCountdown, 1000); 
-}
+    time = setInterval(showCountdown, 1000);
+   
 
+}
 function showCountdown(){
 	seconds--;
 	$('#timer').html('<h4>Time Remaining: ' + seconds +' '+ 'Seconds </h4>');
 	if(seconds < 1){
         clearInterval(time);
         console.log(seconds);
-       populate();
+        populate();
         quiz.guess();
-       
 	}
 };
 
@@ -124,7 +123,7 @@ function guess(id,guess) {
 function showScores (){
   var gameOverhtml='<h1>Result</h1>'
   gameOverhtml+="<h2 id='score'> Correct Answers:"+ quiz.score+"</h2>";
-  // gameOverhtml+="<h2 id='score'> Incorrect Answer:"+ quiz.score+"</h2>";
+  //gameOverhtml+="<h2 id='score'> Incorrect Answer:"+ quiz.score+"</h2>";
  
   var element=document.getElementById("quiz");
   element.innerHTML=gameOverhtml;
