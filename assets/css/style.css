@@ -1,8 +1,15 @@
+body{
+    background-image: url('../images/nature.jpn.jpg');
+     height: 100%; 
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
 .grid{
     width: 600px;
     height: 500px;
     margin:0 auto;
-    background-color: aliceblue;
+    background-color: lightblue;
     padding: 10px 50px 50px 50px;
     border-radius: 50px;
     box-shadow: 10px 15px 5px #000000;
@@ -10,7 +17,7 @@
 }
 .grid h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: azure;
+    background-color: turquoise;
     font-size: 60px;
     text-align: center;
     color: black;
@@ -22,7 +29,7 @@
     margin-top: 70px;
     text-align: center;
     border-radius: 40px;
-    background-color: lightblue;
+    background-color: turquoise;
     width: 200px;
     color: black;
     padding: 10px 10px;
@@ -45,10 +52,10 @@ h3,
 
 button{
     margin-top: 30px;
-    background-color: gainsboro;
+    background-color: turquoise;
     width: 250px;
     font-size: 20px;
-    color: #fff;
+    color:black;
     padding: 10px 10px;
     margin: 10px 40px 10px 0px;
     border: 1px solid #1d3c6a;

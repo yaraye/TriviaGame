@@ -3,7 +3,7 @@ var funTriviaQuestions=[{
     question: 'What nation was bounced from the Organisation of American States in 1962?',
     answers:["Cuba", "Canada","Mixico","Gana"],
     correctAnswer:"Cuba",
-    image:'assets/'
+    image:"assets/images/trivia1.jpn.jpg"
 },{
     question:'What continent has the fewest flowering plants?',
     answers:["Afirca", "Antarctica","Asia","Australia"],
@@ -43,24 +43,25 @@ $(document).on('click','#reset', function()
     reset();
 })
 
-var funTriviaQuestions=funTriviaQuestions;
-  var  currentQuestion=0;
- var   counter=5;
-  var  correct=0;
- var   incorrect=0;
-  var  unanswered=0;
+    var funTriviaQuestions=funTriviaQuestions;
+    var  currentQuestion=0;
+    var   counter=15;
+    var  correct=0;
+    var   incorrect=0;
+    var  unanswered=0;
 
     
 
      function populate(){
         timer = setInterval(countDown,1000);
-        $("#sub").html('<h2 id="counter">Time Remaining: 5 Seconds </h2>');
+        $("#sub").html('<h2 id="counter">Time Remaining: 15 Seconds </h2>');
         $("#sub").append("<h2>"+funTriviaQuestions[currentQuestion].question+"</h2>");
         for (var i=0; i<funTriviaQuestions[currentQuestion].answers.length;i++){
         $("#sub").append('<button class="clickedAnswer" id="button-'+i+'" data-name="'+
         funTriviaQuestions[currentQuestion].answers[i]+'">'+funTriviaQuestions[currentQuestion].
         answers[i]+'</button>');
-        }
+        };
+        $("#sub").append("<img scr='..'>");
     };
     
 
@@ -74,7 +75,7 @@ var funTriviaQuestions=funTriviaQuestions;
     };
  
    function  nextQuestion(){
-        counter=5;
+        counter=15;
         $('#counter').html(counter);
         currentQuestion++;
         populate();
@@ -114,27 +115,27 @@ var funTriviaQuestions=funTriviaQuestions;
         correct++;
         $('#sub').html('<h2> Correct! </h2>');
         if(currentQuestion==funTriviaQuestions.length-1){
-            setTimeout(results,3*1000);
+            setTimeout(results,2*1000);
         }else {
-            setTimeout(nextQuestion,3*1000);
+            setTimeout(nextQuestion,2*1000);
         }
 
     };
    function IncorrectlyAnswered(){
         clearInterval(timer);
         incorrect++;
-        $('#sub').html('<h2> Wrong</h2>');
+        $('#sub').html('<h2> Wrong!</h2>');
         $('#sub').append('<h3>The Correct Answer Is:'+funTriviaQuestions[currentQuestion].correctAnswer+'</h3>');
         if(currentQuestion==funTriviaQuestions.length-1){
             setTimeout(results,2*1000);
         }else {
-            setTimeout(gmae.nextQuestion,2*1000);
+            setTimeout(nextQuestion,2*1000);
         }
     };
    function  reset(){
         currentQuestion=0;
         counter=0;
-        counter=0;
+        counter=0
         correct=0;
         incorrect=0;
         unanswered=0;
