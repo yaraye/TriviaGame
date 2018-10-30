@@ -1,15 +1,23 @@
 body{
-    background-image: url('../images/nature.jpn.jpg');
-     height: 100%; 
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
+    /* background-color: turquoise; 
+    background-image: linear-gradient(to bottom right, turquoise, green); */
+    background-image: url("../images/slide_3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
 }
 .grid{
     width: 600px;
     height: 500px;
     margin:0 auto;
-    background-color: lightblue;
+    margin-top: 80px;
+    background-image: url('../images/dev.jpn.jpg');
+    height: 100%; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
     padding: 10px 50px 50px 50px;
     border-radius: 50px;
     box-shadow: 10px 15px 5px #000000;
@@ -17,7 +25,7 @@ body{
 }
 .grid h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: turquoise;
+    background-color: lightblue;
     font-size: 60px;
     text-align: center;
     color: black;
@@ -29,9 +37,9 @@ body{
     margin-top: 70px;
     text-align: center;
     border-radius: 40px;
-    background-color: turquoise;
+    background-color: lightblue;
     width: 200px;
-    color: black;
+    color: white;
     padding: 10px 10px;
     margin-left: 35%;
     border: 1px solid #1d3c6a;
@@ -40,19 +48,19 @@ body{
 .grid #question{
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
-    color: black;
+    color: white;
 }
 h2,
 h3,
 #counter{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
-    color: black;
+    color: wheat;
 }
 
 button{
     margin-top: 30px;
-    background-color: turquoise;
+    background-color: lightblue;
     width: 250px;
     font-size: 20px;
     color:black;
